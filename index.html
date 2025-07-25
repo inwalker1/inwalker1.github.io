@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>YOUR_SHOP_NAME — одежда и аксессуары</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Простые стили, можешь потом заменить на свои -->
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0 16px; }
+    header, footer { padding: 16px 0; }
+    h1 { margin: 16px 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .item { border: 1px solid #eee; padding: 12px; border-radius: 8px; }
+    .item img { width: 100%; height: auto; border-radius: 6px; }
+    .price { font-weight: bold; margin: 8px 0; }
+    .btn { display: inline-block; padding: 8px 12px; border: 1px solid #000; border-radius: 4px; cursor: pointer; background:#000; color:#fff; text-decoration:none; }
+    .cart { position: fixed; right: 16px; bottom: 16px; background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 12px; max-width: 320px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .ads { margin: 24px 0; padding: 16px; background: #f7f7f7; border-radius: 8px; }
+  </style>
+
+  <!-- simpleCart.js (корзина) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/simplecartjs/3.0.6/simpleCart.min.js"></script>
+  <script>
+    simpleCart({
+      cartStyle: "table",
+      checkout: {
+        type: "SendForm",
+        url: "mailto:YOU@EMAIL.COM" // замени на свою почту или форму
+      },
+      currency: "RUB"
+    });
+  </script>
+</head>
+<body>
+
+<header>
+  <h1>YOUR_SHOP_NAME</h1>
+  <p>Футболки, одежда и аксессуары</p>
+</header>
+
+<!-- Блок для собственной рекламы -->
+<div class="ads">
+  <!-- РЕКЛАМА: сюда вставляй свои баннеры/партнёрки/скрипты -->
+  <strong>Акция!</strong> Скидка 10% по промокоду <b>WELCOME10</b>.
+</div>
+
+<h2>Каталог</h2>
+<div class="grid">
+
+  <!-- ТОВАР 1 -->
+  <div class="item simpleCart_shelfItem">
+    <img src="images/tshirt1.jpg" alt="Футболка Oversize">
+    <h3 class="item_name">Футболка Oversize</h3>
+    <p class="item_description">100% хлопок, разные размеры</p>
+    <div class="price"><span class="item_price">1490</span> руб.</div>
+    <input type="hidden" class="item_number" value="SKU-TSHIRT-001">
+    <a class="item_add btn" href="javascript:;">В корзину</a>
+  </div>
+
+  <!-- ТОВАР 2 -->
+  <div class="item simpleCart_shelfItem">
+    <img src="images/cap1.jpg" alt="Кепка Classic">
+    <h3 class="item_name">Кепка Classic</h3>
+    <p class="item_description">Регулируемый размер</p>
+    <div class="price"><span class="item_price">990</span> руб.</div>
+    <input type="hidden" class="item_number" value="SKU-CAP-001">
+    <a class="item_add btn" href="javascript:;">В корзину</a>
+  </div>
+
+</div>
+
+<!-- Корзина -->
+<div class="cart">
+  <h3>Корзина</h3>
+  <div class="simpleCart_items"></div>
+  <p>Итого: <span class="simpleCart_total"></span> руб. (<span class="simpleCart_quantity"></span> шт.)</p>
+  <a href="javascript:;" class="simpleCart_checkout btn">Оформить заказ</a>
+  <a href="javascript:;" class="simpleCart_empty" style="margin-left:8px;">Очистить</a>
+</div>
+
+<footer>
+  <p>Контакты: <a href="mailto:YOU@EMAIL.COM">YOU@EMAIL.COM</a> · Telegram: @YOUR_TELEGRAM</p>
+</footer>
+
+</body>
+</html>
